@@ -1,6 +1,7 @@
 package com.rian.estude.module.entity;
 
 import com.rian.estude.course.entity.Course;
+import com.rian.estude.infrastructure.entity.PersistenceEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,9 +14,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @Data
 @ToString
-public class Module {
-    @Id
-    private Long id;
+public class Module extends PersistenceEntity {
 
     @OneToOne
     private Course courseId;

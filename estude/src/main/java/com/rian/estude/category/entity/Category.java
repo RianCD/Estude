@@ -1,5 +1,6 @@
 package com.rian.estude.category.entity;
 
+import com.rian.estude.infrastructure.entity.PersistenceEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,10 +13,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @Data
 @ToString
-public class Category {
-
-    @Id
-    private Long id;
+public class Category extends PersistenceEntity {
 
     @Column(name = "name")
     private String name;

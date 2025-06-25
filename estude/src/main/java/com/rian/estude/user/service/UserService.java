@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+
 @Slf4j //logs
 @Service
 @RequiredArgsConstructor
@@ -22,7 +23,7 @@ public class UserService implements UserIService{
             log.info("saved user: {}", savedUser);
             return savedUser;
         }catch (Exception e) {
-            log.error("Error on saving user" + e.getMessage());
+            log.error("Error on saving user{}", e.getMessage());
             throw new RuntimeException(e);
         }
     }
@@ -35,7 +36,7 @@ public class UserService implements UserIService{
             userIRepository.deleteById(id);
             log.info("deleted user: {}", id);
         }catch (Exception e) {
-            log.error("Error on deleting user" + e.getMessage());
+            log.error("Error on deleting user{}", e.getMessage());
             throw new RuntimeException(e);
         }
     }
@@ -48,6 +49,8 @@ public class UserService implements UserIService{
                 orElseThrow(() -> new RuntimeException("No user found" + id));
     }
 
+    @Override
+    @Transactional
     public User update(User user) {
         log.info("starting update user: {}", user);
         if (!this.userIRepository.existsById(user.getId())) {
@@ -59,7 +62,7 @@ public class UserService implements UserIService{
             log.info("updating user: {}", user);
             return userIRepository.save(user);
         }catch (Exception e) {
-            log.error("Error on updating user" + e.getMessage());
+            log.error("Error on updating user{}", e.getMessage());
             throw new RuntimeException(e);
         }
     }

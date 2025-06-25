@@ -2,6 +2,7 @@ package com.rian.estude.course.entity;
 
 import com.rian.estude.category.entity.Category;
 import com.rian.estude.course.enuns.Status;
+import com.rian.estude.infrastructure.entity.PersistenceEntity;
 import com.rian.estude.module.entity.Module;
 import com.rian.estude.user.entity.User;
 import jakarta.persistence.*;
@@ -18,10 +19,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Data
 @ToString
-public class Course {
-
-    @Id
-    private Long id;
+public class Course extends PersistenceEntity {
 
     @Column(name = "title")
     private String title;
