@@ -13,7 +13,7 @@ import lombok.ToString;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "users")
+@Table(name = "courses")
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
