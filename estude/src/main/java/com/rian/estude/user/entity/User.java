@@ -18,15 +18,22 @@ import java.time.LocalDate;
 @ToString
 public class User extends PersistenceEntity {
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "firstName")
+    private String firstName;
+
+    @Column(name = "lastName")
+    private String lastName;
+
+    @Column(name = "nickname")
+    private String nickname;
 
     @Column(name = "phone")
     private String phoneNumber;
 
-    @Column(name = "email")
+    @Column(name = "email", unique = true)
     private String email;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "role")
     private Role role;
 
@@ -38,4 +45,5 @@ public class User extends PersistenceEntity {
 
     @Column(name = "birthDate")
     private LocalDate birthDate;
+
 }
