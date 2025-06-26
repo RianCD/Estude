@@ -17,11 +17,12 @@ import lombok.ToString;
 public class Module extends PersistenceEntity {
 
     @OneToOne
-    private Course courseId;
+    @JoinColumn(name = "course_id")
+    private Course course;
 
     @Column(name = "title")
     private String title;
 
-    @Column(name = "order")
-    private Integer order; //indica a ordem do módulo dentro do curso
+    @Column(name = "module_order")
+    private Integer moduleOrder; //indica a ordem do módulo dentro do curso
 }

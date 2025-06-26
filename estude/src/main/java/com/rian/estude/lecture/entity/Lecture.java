@@ -18,7 +18,8 @@ import lombok.ToString;
 public class Lecture extends PersistenceEntity {
 
     @OneToOne
-    private Module moduleId;
+    @JoinColumn(name = "module_id")
+    private Module module;
 
     @Column(name = "title")
     private String title;
@@ -26,16 +27,17 @@ public class Lecture extends PersistenceEntity {
     @Column(name = "description")
     private String description;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "type")
     private Type type;
 
-    @Column(name = "contentUrl")
+    @Column(name = "content_url")
     private String contentUrl;
 
-    @Column(name = "textContent")
+    @Column(name = "text_content")
     private String textContent;
 
-    @Column(name = "order")
+    @Column(name = "lecture_order")
     private Integer order; //ordem da aula dentro do modulo
 
     @Column(name = "active")
