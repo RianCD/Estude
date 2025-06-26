@@ -20,17 +20,24 @@ public class Lecture extends PersistenceEntity {
     @OneToOne
     private Module moduleId;
 
+    @Column(name = "title")
     private String title;
 
+    @Column(name = "description")
     private String description;
 
+    @Column(name = "type")
     private Type type;
 
+    @Column(name = "contentUrl")
     private String contentUrl;
 
+    @Column(name = "textContent")
     private String textContent;
 
+    @Column(name = "order")
     private Integer order; //ordem da aula dentro do modulo
 
+    @Column(name = "active")
     private boolean active;
 }
